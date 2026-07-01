@@ -31,27 +31,7 @@ your-repo/
 ## Repo structure
 
 ```
-your-repo/
-├── screenshots/
-│   ├── idle-state.png
-│   ├── appletv-active.png
-│   ├── source2-active.png
-│   └── debug-panel.png
-├── custom_components/
-│   └── universal_remote/
-│       ├── manifest.json     # integration metadata
-│       ├── const.py          # SOURCES list, icons, domain — single place to edit
-│       ├── controller.py     # RemoteController: the ONLY source of truth
-│       ├── __init__.py       # boots the controller, forwards to platforms
-│       ├── switch.py         # TV Power / AVR Power entities (thin wrappers)
-│       └── media_player.py   # source selection + status display entity
-├── config/
-│   ├── configuration.yaml        # wires the integration + dashboards into HA
-│   ├── ui-lovelace.yaml          # main remote view
-│   └── ui-lovelace-debug.yaml    # secondary debug/status view
-├── README.md
-└── .gitignore
-```
+ 
 
 ### Why one `RemoteController` class
 

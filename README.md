@@ -1,5 +1,4 @@
- # Universal Remote — Home Assistant Practical Assessment
- # Universal Remote — Home Assistant Practical Assessment
+  # Universal Remote — Home Assistant Practical Assessment
 
 A mock universal remote built on Home Assistant OS: a Python custom
 integration owns all state (TV power, AVR power, active source), and

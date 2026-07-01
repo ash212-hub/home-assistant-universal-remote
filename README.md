@@ -1,25 +1,33 @@
-# Universal Remote — Home Assistant Practical Assessment
+ # Universal Remote — Home Assistant Practical Assessment
 
 A mock universal remote built on Home Assistant OS: a Python custom
 integration owns all state (TV power, AVR power, active source), and
 a two-view Lovelace dashboard provides the remote UI plus a live
 debug/status panel.
 
-## Architecture
+## Repo structure
 
 ```
-custom_components/universal_remote/
-├── manifest.json     # integration metadata
-├── const.py           # SOURCES list, icons, domain — single place to edit
-├── controller.py      # RemoteController: the ONLY source of truth
-├── __init__.py        # boots the controller, forwards to platforms
-├── switch.py           # TV Power / AVR Power entities (thin wrappers)
-└── media_player.py     # source selection + status display entity
-
-config/
-├── configuration.yaml     # wires the integration + dashboards into HA
-├── ui-lovelace.yaml        # main remote view
-└── ui-lovelace-debug.yaml  # secondary debug/status view
+your-repo/
+├── screenshots/
+│   ├── idle-state.png
+│   ├── appletv-active.png
+│   ├── source2-active.png
+│   └── debug-panel.png
+├── custom_components/
+│   └── universal_remote/
+│       ├── manifest.json     # integration metadata
+│       ├── const.py          # SOURCES list, icons, domain — single place to edit
+│       ├── controller.py     # RemoteController: the ONLY source of truth
+│       ├── __init__.py       # boots the controller, forwards to platforms
+│       ├── switch.py         # TV Power / AVR Power entities (thin wrappers)
+│       └── media_player.py   # source selection + status display entity
+├── config/
+│   ├── configuration.yaml        # wires the integration + dashboards into HA
+│   ├── ui-lovelace.yaml          # main remote view
+│   └── ui-lovelace-debug.yaml    # secondary debug/status view
+├── README.md
+└── .gitignore
 ```
 
 ### Why one `RemoteController` class
@@ -160,6 +168,19 @@ than a VirtualBox VM on a Wi-Fi-only host.
 
 ## Demo
 
-See `/screenshots` for idle / Apple TV active / Source 2 active
-states, and `/recording/demo.mp4` for a walkthrough of source
-switching with the debug panel showing live backend state updates.
+**Idle state** — TV and AVR off, no active source:
+
+![Idle state](screenshots/idle-state.png)
+
+**Apple TV active** — source selected, TV and AVR powered on:
+
+![Apple TV active](screenshots/appletv-active.png)
+
+**Source 2 active** — switching sources updates state instantly:
+
+![Source 2 active](screenshots/source2-active.png)
+
+**Debug panel** — raw entity state/history, showing the backend
+(not just button styling) is driving the UI:
+
+![Debug panel](screenshots/debug-panel.png)

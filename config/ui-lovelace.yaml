@@ -1,0 +1,168 @@
+title: Universal Remote
+views:
+  - title: Remote
+    path: remote
+    icon: mdi:remote
+    badges: []
+    cards:
+      - type: markdown
+        content: "## Universal Remote"
+
+      # ---------- POWER ----------
+      - type: markdown
+        content: "### Power"
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: button
+            name: TV
+            icon: mdi:television
+            entity: switch.tv_power
+            tap_action:
+              action: toggle
+            show_state: true
+
+          - type: button
+            name: AVR
+            icon: mdi:audio-video
+            entity: switch.avr_power
+            tap_action:
+              action: toggle
+            show_state: true
+
+      # ---------- SOURCES ----------
+      - type: markdown
+        content: "### Sources"
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: button
+            name: Apple TV
+            icon: mdi:apple
+            entity: media_player.universal_remote
+            tap_action:
+              action: perform-action
+              perform_action: media_player.select_source
+              target:
+                entity_id: media_player.universal_remote
+              data:
+                source: "Apple TV"
+            state_color: true
+
+          - type: button
+            name: Source 2
+            icon: mdi:gamepad-variant
+            entity: media_player.universal_remote
+            tap_action:
+              action: perform-action
+              perform_action: media_player.select_source
+              target:
+                entity_id: media_player.universal_remote
+              data:
+                source: "Source 2"
+            state_color: true
+
+          - type: button
+            name: Source 3
+            icon: mdi:youtube-tv
+            entity: media_player.universal_remote
+            tap_action:
+              action: perform-action
+              perform_action: media_player.select_source
+              target:
+                entity_id: media_player.universal_remote
+              data:
+                source: "Source 3"
+            state_color: true
+
+          - type: button
+            name: Source 4
+            icon: mdi:disc-player
+            entity: media_player.universal_remote
+            tap_action:
+              action: perform-action
+              perform_action: media_player.select_source
+              target:
+                entity_id: media_player.universal_remote
+              data:
+                source: "Source 4"
+            state_color: true
+
+      # ---------- NOW PLAYING / STATUS ----------
+      - type: markdown
+        content: "### Now Playing"
+      - type: entities
+        entities:
+          - entity: media_player.universal_remote
+            name: Active Source
+            secondary_info: last-changed
+
+      # ---------- VOLUME ----------
+      - type: markdown
+        content: "### Volume"
+      - type: grid
+        columns: 2
+        cards:
+          - type: button
+            name: Vol +
+            icon: mdi:volume-plus
+            tap_action:
+              action: perform-action
+              perform_action: media_player.volume_up
+              target:
+                entity_id: media_player.universal_remote
+          - type: button
+            name: Vol -
+            icon: mdi:volume-minus
+            tap_action:
+              action: perform-action
+              perform_action: media_player.volume_down
+              target:
+                entity_id: media_player.universal_remote
+
+      # ---------- NAVIGATION ----------
+      - type: markdown
+        content: "### Navigation"
+      - type: grid
+        columns: 3
+        square: true
+        cards:
+          - type: button
+            show_icon: false
+            tap_action:
+              action: none
+          - type: button
+            icon: mdi:arrow-up-bold
+            tap_action:
+              action: none
+          - type: button
+            show_icon: false
+            tap_action:
+              action: none
+          - type: button
+            icon: mdi:arrow-left-bold
+            tap_action:
+              action: none
+          - type: button
+            icon: mdi:circle-outline
+            name: OK
+            tap_action:
+              action: none
+          - type: button
+            icon: mdi:arrow-right-bold
+            tap_action:
+              action: none
+          - type: button
+            show_icon: false
+            tap_action:
+              action: none
+          - type: button
+            icon: mdi:arrow-down-bold
+            tap_action:
+              action: none
+          - type: button
+            show_icon: false
+            tap_action:
+              action: none

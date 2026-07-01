@@ -1,0 +1,25 @@
+# Home Assistant runtime data -- never commit these
+# (auth tokens, database, logs, secrets)
+.storage/
+.cloud/
+.HA_VERSION
+.ha_run.lock
+home-assistant.log*
+home-assistant_v2.db*
+secrets.yaml
+known_devices.yaml
+deps/
+tts/
+blueprints/
+
+# Auto-generated empty config files (created fresh by HA on first boot)
+automations.yaml
+scripts.yaml
+scenes.yaml
+
+# Editor / OS junk
+.vscode/
+.DS_Store
+Thumbs.db
+*.pyc
+__pycache__/

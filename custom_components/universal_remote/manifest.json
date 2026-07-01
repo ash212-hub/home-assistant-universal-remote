@@ -1,0 +1,11 @@
+{
+  "domain": "universal_remote",
+  "name": "Universal Remote (Mock)",
+  "version": "1.0.0",
+  "documentation": "https://github.com/yourusername/universal-remote-haos",
+  "issue_tracker": "https://github.com/yourusername/universal-remote-haos/issues",
+  "codeowners": ["@yourusername"],
+  "config_flow": false,
+  "iot_class": "calculated",
+  "requirements": []
+}

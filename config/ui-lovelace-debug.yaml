@@ -1,0 +1,51 @@
+title: Remote Debug
+views:
+  - title: Debug / Status
+    path: debug
+    icon: mdi:bug
+    cards:
+      - type: markdown
+        content: |
+          ## Live Backend State
+          This view reads directly from the `universal_remote` custom
+          integration entities. It proves the remote view's buttons are
+          driving real backend state -- not just toggling button styles.
+
+      - type: entities
+        title: Raw Entity States
+        show_header_toggle: false
+        entities:
+          - entity: switch.tv_power
+            name: TV Power (raw)
+          - entity: switch.avr_power
+            name: AVR Power (raw)
+          - entity: media_player.universal_remote
+            name: Media Player State (raw)
+
+      - type: entities
+        title: Media Player Attributes
+        entities:
+          - type: attribute
+            entity: media_player.universal_remote
+            attribute: tv_power
+            name: tv_power
+          - type: attribute
+            entity: media_player.universal_remote
+            attribute: avr_power
+            name: avr_power
+          - type: attribute
+            entity: media_player.universal_remote
+            attribute: active_source
+            name: active_source
+          - type: attribute
+            entity: media_player.universal_remote
+            attribute: source_list
+            name: source_list
+
+      - type: history-graph
+        title: State History
+        hours_to_show: 1
+        entities:
+          - entity: switch.tv_power
+          - entity: switch.avr_power
+          - entity: media_player.universal_remote

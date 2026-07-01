@@ -1,0 +1,25 @@
+# Home Assistant core config
+# (This is a snippet to merge into your existing configuration.yaml,
+# not a full replacement -- keep your default_config: etc.)
+
+default_config:
+
+# Loads custom_components/universal_remote/__init__.py
+universal_remote:
+
+# Triggers custom_components/universal_remote/switch.py
+switch:
+
+# Triggers custom_components/universal_remote/media_player.py
+media_player:
+
+# Point HA at the YAML dashboard defined in ui-lovelace.yaml
+lovelace:
+  mode: yaml
+  dashboards:
+    universal-remote-debug:
+      mode: yaml
+      title: Remote Debug
+      icon: mdi:bug
+      show_in_sidebar: true
+      filename: ui-lovelace-debug.yaml

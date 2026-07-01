@@ -41,7 +41,7 @@ views:
           - type: button
             name: Apple TV
             icon: mdi:apple
-            entity: media_player.universal_remote
+            entity: binary_sensor.source_apple_tv_active
             tap_action:
               action: perform-action
               perform_action: media_player.select_source
@@ -54,7 +54,7 @@ views:
           - type: button
             name: Source 2
             icon: mdi:gamepad-variant
-            entity: media_player.universal_remote
+            entity: binary_sensor.source_2_active
             tap_action:
               action: perform-action
               perform_action: media_player.select_source
@@ -67,7 +67,7 @@ views:
           - type: button
             name: Source 3
             icon: mdi:youtube-tv
-            entity: media_player.universal_remote
+            entity: binary_sensor.source_3_active
             tap_action:
               action: perform-action
               perform_action: media_player.select_source
@@ -80,7 +80,7 @@ views:
           - type: button
             name: Source 4
             icon: mdi:disc-player
-            entity: media_player.universal_remote
+            entity: binary_sensor.source_4_active
             tap_action:
               action: perform-action
               perform_action: media_player.select_source

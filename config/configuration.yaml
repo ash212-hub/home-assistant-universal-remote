@@ -1,25 +1,46 @@
-# Home Assistant core config
-# (This is a snippet to merge into your existing configuration.yaml,
-# not a full replacement -- keep your default_config: etc.)
-
 default_config:
 
-# Loads custom_components/universal_remote/__init__.py
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+
 universal_remote:
 
-# Triggers custom_components/universal_remote/switch.py
 switch:
 
-# Triggers custom_components/universal_remote/media_player.py
 media_player:
 
-# Point HA at the YAML dashboard defined in ui-lovelace.yaml
+template:
+  - binary_sensor:
+      - name: "Source Apple TV Active"
+        unique_id: source_appletv_active
+        icon: mdi:apple
+        state: "{{ state_attr('media_player.universal_remote', 'active_source') == 'Apple TV' }}"
+      - name: "Source 2 Active"
+        unique_id: source_2_active
+        icon: mdi:gamepad-variant
+        state: "{{ state_attr('media_player.universal_remote', 'active_source') == 'Source 2' }}"
+      - name: "Source 3 Active"
+        unique_id: source_3_active
+        icon: mdi:youtube-tv
+        state: "{{ state_attr('media_player.universal_remote', 'active_source') == 'Source 3' }}"
+      - name: "Source 4 Active"
+        unique_id: source_4_active
+        icon: mdi:disc-player
+        state: "{{ state_attr('media_player.universal_remote', 'active_source') == 'Source 4' }}"
+
 lovelace:
-  mode: yaml
+  resource_mode: yaml
   dashboards:
+    lovelace:
+      mode: yaml
+      filename: ui-lovelace.yaml
+      title: Universal Remote
+      icon: mdi:remote
+      show_in_sidebar: true
     universal-remote-debug:
       mode: yaml
+      filename: ui-lovelace-debug.yaml
       title: Remote Debug
       icon: mdi:bug
       show_in_sidebar: true
-      filename: ui-lovelace-debug.yaml
